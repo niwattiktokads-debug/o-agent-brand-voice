@@ -1,0 +1,23 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Buttons</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:var(--bg-base);padding:22px 24px;font-family:var(--font-body);color:var(--fg-2)}
+  .eb{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-4);margin-bottom:14px}
+  .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+  .note{font-size:11px;color:var(--fg-4)}
+</style></head>
+<body>
+  <div class="eb">Buttons · minimal, text-forward, no gradient</div>
+  <div class="row">
+    <button class="oa-btn oa-btn--primary">Connect TikTok Shop</button>
+    <button class="oa-btn oa-btn--ghost">Skip for now</button>
+    <button class="oa-btn oa-btn--text">Learn more →</button>
+  </div>
+  <div class="row">
+    <button class="oa-btn oa-btn--primary" style="opacity:.88">Hover · opacity .88</button>
+    <button class="oa-btn oa-btn--ghost" style="background:var(--gray-100)">Hover · gray-100</button>
+    <button class="oa-btn oa-btn--primary" disabled style="opacity:.35;cursor:not-allowed">Disabled</button>
+  </div>
+  <div class="note">No pills. No shadow. No gradient. No icon by default.</div>
+</body></html>

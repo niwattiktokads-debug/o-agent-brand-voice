@@ -1,0 +1,21 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Radii</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:var(--bg-base);padding:22px 24px;font-family:var(--font-body);color:var(--fg-2)}
+  .eb{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-4);margin-bottom:14px}
+  .row{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+  .sq{background:#3A3A38;height:70px}
+  .lbl{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--fg-4);margin-top:8px;text-align:center}
+  .nm{font-size:11px;color:var(--fg-3);text-align:center;margin-top:2px}
+</style></head>
+<body>
+  <div class="eb">Corner radii · 4–8px · pill is functional only</div>
+  <div class="row">
+    <div><div class="sq" style="border-radius:2px"></div><div class="lbl">2 px</div><div class="nm">radius-xs</div></div>
+    <div><div class="sq" style="border-radius:4px"></div><div class="lbl">4 px</div><div class="nm">radius-sm · buttons</div></div>
+    <div><div class="sq" style="border-radius:6px"></div><div class="lbl">6 px</div><div class="nm">radius-md · cards</div></div>
+    <div><div class="sq" style="border-radius:8px"></div><div class="lbl">8 px</div><div class="nm">radius-lg · modals</div></div>
+    <div><div class="sq" style="border-radius:999px"></div><div class="lbl">999</div><div class="nm">pill · tags only</div></div>
+  </div>
+</body></html>

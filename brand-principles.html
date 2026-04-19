@@ -1,0 +1,38 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Do / Don't</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:var(--bg-base);padding:20px 24px;font-family:var(--font-body);color:var(--fg-2)}
+  .eb{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-4);margin-bottom:14px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .col h4{margin:0 0 10px;font-family:'IBM Plex Serif',serif;font-weight:400;font-size:16px;color:var(--fg-1)}
+  .col ul{margin:0;padding:0;list-style:none}
+  .col li{font-size:12px;color:var(--fg-3);padding:5px 0 5px 20px;position:relative;line-height:1.45}
+  .do li::before{content:"·";position:absolute;left:6px;top:3px;color:var(--accent-green);font-weight:700;font-size:18px;line-height:1}
+  .dont li::before{content:"×";position:absolute;left:4px;top:6px;color:var(--accent-terracotta);font-size:11px;font-family:'IBM Plex Mono',monospace}
+</style></head>
+<body>
+  <div class="eb">Principles · do and don't</div>
+  <div class="grid">
+    <div class="col do">
+      <h4>Do</h4>
+      <ul>
+        <li>Editorial whitespace — trust the silence.</li>
+        <li>Layered transparency at 60–85%.</li>
+        <li>Thai and Latin as equals.</li>
+        <li>One display size per screen.</li>
+        <li>Confident stops in motion.</li>
+      </ul>
+    </div>
+    <div class="col dont">
+      <h4>Don't</h4>
+      <ul>
+        <li>Gradient backgrounds.</li>
+        <li>Decorative illustration, stock photo.</li>
+        <li>Excessive accent color — under 5% total.</li>
+        <li>Pure white surfaces.</li>
+        <li>Bouncy or elastic motion. Emoji in UI.</li>
+      </ul>
+    </div>
+  </div>
+</body></html>

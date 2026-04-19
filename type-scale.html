@@ -1,0 +1,26 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Type scale</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:var(--bg-base);padding:20px 24px;font-family:var(--font-body);color:var(--fg-2)}
+  .row{display:grid;grid-template-columns:64px 1fr 120px;gap:14px;align-items:baseline;padding:6px 0;border-bottom:1px solid var(--divider)}
+  .row:last-child{border-bottom:0}
+  .px{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--fg-4);letter-spacing:.02em}
+  .nm{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--fg-4);letter-spacing:.02em;text-align:right}
+  .eb{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-4);margin-bottom:10px}
+  .s0{font-family:'IBM Plex Serif',serif;font-size:40px;line-height:1;color:var(--fg-1);letter-spacing:-0.02em}
+  .s1{font-family:'IBM Plex Serif',serif;font-size:28px;line-height:1.1;color:var(--fg-1);letter-spacing:-0.015em}
+  .s2{font-size:22px;line-height:1.2;color:var(--fg-1);font-weight:500}
+  .s3{font-size:16px;line-height:1.4;color:var(--fg-2)}
+  .s4{font-size:14px;color:var(--fg-3)}
+  .s5{font-size:12px;color:var(--fg-4)}
+</style></head>
+<body>
+  <div class="eb">Type scale</div>
+  <div class="row"><div class="px">40px</div><div class="s0">Display</div><div class="nm">--fs-display</div></div>
+  <div class="row"><div class="px">28px</div><div class="s1">Heading 1</div><div class="nm">--fs-h1</div></div>
+  <div class="row"><div class="px">22px</div><div class="s2">Heading 2</div><div class="nm">--fs-h3</div></div>
+  <div class="row"><div class="px">16px</div><div class="s3">Body primary</div><div class="nm">--fs-body</div></div>
+  <div class="row"><div class="px">14px</div><div class="s4">Body secondary</div><div class="nm">--fs-body-sm</div></div>
+  <div class="row"><div class="px">12px</div><div class="s5">Caption</div><div class="nm">--fs-caption</div></div>
+</body></html>

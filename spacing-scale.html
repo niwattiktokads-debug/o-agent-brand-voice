@@ -1,0 +1,155 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Spacing scale</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:var(--bg-base);padding:20px 24px;font-family:var(--font-body);color:var(--fg-2)}
+  .eb{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-4);margin-bottom:12px;display:flex;justify-content:space-between;align-items:baseline}
+  .eb .hint{font-family:'IBM Plex Serif',serif;font-style:italic;font-size:11px;color:var(--fg-3);text-transform:none;letter-spacing:0}
+  .row{display:grid;grid-template-columns:64px 1fr 80px;align-items:center;gap:12px;padding:3px 0}
+  .tok{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--fg-4)}
+  .px{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--fg-3);text-align:right}
+  .bar{height:10px;border-radius:2px;width:0;transition:width var(--dur,600ms) var(--ease,cubic-bezier(.22,.61,.36,1)) var(--delay,0ms)}
+
+  /* Tweaks panel */
+  #tweaks{position:fixed;right:16px;bottom:16px;width:240px;background:rgba(250,249,245,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(10,10,9,.08);border-radius:8px;box-shadow:0 14px 40px rgba(10,10,9,.08),0 4px 12px rgba(10,10,9,.05);padding:14px 16px;font-family:var(--font-body);display:none;z-index:50}
+  #tweaks.on{display:block}
+  #tweaks h4{margin:0 0 10px;font-family:'IBM Plex Serif',serif;font-weight:400;font-size:14px;color:var(--fg-1);letter-spacing:-0.01em}
+  #tweaks .field{margin-bottom:10px}
+  #tweaks label{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-4);margin-bottom:4px}
+  #tweaks label span{font-family:'IBM Plex Mono',monospace;text-transform:none;letter-spacing:0;color:var(--fg-2)}
+  #tweaks input[type=range]{width:100%;accent-color:#3A3A38}
+  #tweaks .swatches{display:flex;gap:6px}
+  #tweaks .sw{flex:1;height:22px;border-radius:3px;border:1px solid rgba(10,10,9,.08);cursor:pointer;transition:transform 180ms var(--ease,cubic-bezier(.22,.61,.36,1))}
+  #tweaks .sw.active{outline:2px solid #3A3A38;outline-offset:2px}
+  #tweaks .replay{margin-top:6px;width:100%;font-family:var(--font-body);font-size:12px;background:#0A0A09;color:#FAF9F5;border:0;border-radius:4px;padding:7px 10px;cursor:pointer;transition:opacity 220ms}
+  #tweaks .replay:hover{opacity:.88}
+</style></head>
+<body>
+  <div class="eb">
+    <span>Spacing scale · 1.5× comfortable + 20%</span>
+    <span class="hint" id="hint">first move on load</span>
+  </div>
+  <div id="rows"></div>
+
+  <aside id="tweaks" aria-label="Tweaks">
+    <h4>Tweaks</h4>
+    <div class="field">
+      <label>Color<span id="colorLabel">charcoal</span></label>
+      <div class="swatches">
+        <button class="sw" data-c="#B8B6AE" style="background:#B8B6AE" title="gray-300"></button>
+        <button class="sw" data-c="#8A8880" style="background:#8A8880" title="gray-400"></button>
+        <button class="sw active" data-c="#3A3A38" style="background:#3A3A38" title="charcoal"></button>
+        <button class="sw" data-c="#0A0A09" style="background:#0A0A09" title="black"></button>
+        <button class="sw" data-c="#B4553A" style="background:#B4553A" title="terracotta"></button>
+      </div>
+    </div>
+    <div class="field">
+      <label>Duration<span id="durLabel">600 ms</span></label>
+      <input type="range" id="dur" min="120" max="1400" step="20" value="600"/>
+    </div>
+    <div class="field">
+      <label>Stagger<span id="stagLabel">60 ms</span></label>
+      <input type="range" id="stag" min="0" max="200" step="10" value="60"/>
+    </div>
+    <div class="field">
+      <label>Height<span id="hLabel">10 px</span></label>
+      <input type="range" id="h" min="4" max="24" step="1" value="10"/>
+    </div>
+    <button class="replay" id="replay">Replay animation</button>
+  </aside>
+
+<script>
+/*EDITMODE-BEGIN*/const DEFAULTS = {
+  "color": "#3A3A38",
+  "durationMs": 600,
+  "staggerMs": 60,
+  "heightPx": 10
+}/*EDITMODE-END*/;
+
+const STATE = Object.assign({}, DEFAULTS);
+
+const SCALE = [
+  ['space-1', 4],  ['space-2', 8],  ['space-3', 12],
+  ['space-4', 16], ['space-5', 24], ['space-6', 32],
+  ['space-7', 48], ['space-8', 64], ['space-9', 96],
+];
+
+const rowsEl = document.getElementById('rows');
+SCALE.forEach(([tok, px], i) => {
+  const row = document.createElement('div');
+  row.className = 'row';
+  row.innerHTML = `
+    <div class="tok">${tok}</div>
+    <div><div class="bar" data-target="${px}" data-i="${i}" style="width:0"></div></div>
+    <div class="px">${px} px</div>`;
+  rowsEl.appendChild(row);
+});
+
+function applyColor(c){
+  STATE.color = c;
+  document.querySelectorAll('.bar').forEach(b => b.style.background = c);
+  const map = {'#B8B6AE':'gray-300','#8A8880':'gray-400','#3A3A38':'charcoal','#0A0A09':'black','#B4553A':'terracotta'};
+  document.getElementById('colorLabel').textContent = map[c] || c;
+  document.querySelectorAll('#tweaks .sw').forEach(sw => sw.classList.toggle('active', sw.dataset.c === c));
+}
+function applyHeight(h){
+  STATE.heightPx = h;
+  document.querySelectorAll('.bar').forEach(b => b.style.height = h + 'px');
+  document.getElementById('hLabel').textContent = h + ' px';
+  document.getElementById('h').value = h;
+}
+function applyDurations(){
+  document.querySelectorAll('.bar').forEach(b => {
+    const i = +b.dataset.i;
+    b.style.setProperty('--dur', STATE.durationMs + 'ms');
+    b.style.setProperty('--delay', (i * STATE.staggerMs) + 'ms');
+  });
+  document.getElementById('durLabel').textContent = STATE.durationMs + ' ms';
+  document.getElementById('stagLabel').textContent = STATE.staggerMs + ' ms';
+  document.getElementById('dur').value = STATE.durationMs;
+  document.getElementById('stag').value = STATE.staggerMs;
+}
+function play(){
+  document.querySelectorAll('.bar').forEach(b => { b.style.width = '0'; });
+  // force reflow so transition re-triggers
+  void rowsEl.offsetWidth;
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.bar').forEach(b => {
+      b.style.width = b.dataset.target + 'px';
+    });
+  });
+}
+
+applyColor(STATE.color);
+applyHeight(STATE.heightPx);
+applyDurations();
+// first move on load
+setTimeout(play, 120);
+
+// Tweaks wiring
+document.querySelectorAll('#tweaks .sw').forEach(sw => {
+  sw.addEventListener('click', () => { applyColor(sw.dataset.c); persist({ color: sw.dataset.c }); });
+});
+document.getElementById('dur').addEventListener('input', e => {
+  STATE.durationMs = +e.target.value; applyDurations(); persist({ durationMs: STATE.durationMs });
+});
+document.getElementById('stag').addEventListener('input', e => {
+  STATE.staggerMs = +e.target.value; applyDurations(); persist({ staggerMs: STATE.staggerMs });
+});
+document.getElementById('h').addEventListener('input', e => {
+  applyHeight(+e.target.value); persist({ heightPx: +e.target.value });
+});
+document.getElementById('replay').addEventListener('click', play);
+
+// Edit-mode protocol
+function persist(edits){
+  try { window.parent.postMessage({ type:'__edit_mode_set_keys', edits }, '*'); } catch(_){}
+}
+window.addEventListener('message', (e) => {
+  const d = e.data || {};
+  if (d.type === '__activate_edit_mode')   document.getElementById('tweaks').classList.add('on');
+  if (d.type === '__deactivate_edit_mode') document.getElementById('tweaks').classList.remove('on');
+});
+try { window.parent.postMessage({ type:'__edit_mode_available' }, '*'); } catch(_){}
+</script>
+</body></html>

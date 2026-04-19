@@ -1,0 +1,303 @@
+/* =============================================================
+   O-Agent Design System — colors_and_type.css
+   Bilingual (Thai / English) editorial minimalism.
+   70 / 20 / 10 color ratio. Warm off-white foundation.
+   ============================================================= */
+
+/* -------------------------------------------------------------
+   Fonts — development fallbacks only.
+   The real typefaces are a custom bilingual display + body pair
+   still in development. Until delivered, we use:
+     — IBM Plex Sans Thai Looped  (Thai body, loopless/loop mix)
+     — IBM Plex Sans Thai         (Thai body alternate)
+     — IBM Plex Serif             (display, Didone-adjacent proxy)
+     — Inter                      (Latin body, humanist-adjacent)
+     — IBM Plex Mono              (numerals, code)
+   ------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@300;400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* ---------- 70% — surfaces & neutrals ---------- */
+  --bg-base:       #FAF9F5;  /* warm off-white — never pure white */
+  --bg-raised:     #F3F1EB;  /* slightly deeper warm neutral */
+  --gray-100:      #EAEAE6;  /* light gray */
+  --gray-200:      #D4D2CA;  /* warm gray */
+  --gray-300:      #B8B6AE;  /* mid gray */
+  --gray-400:      #8A8880;  /* muted (derived; for captions) */
+
+  /* ---------- 20% — dark neutrals / primary text ---------- */
+  --charcoal:      #3A3A38;  /* primary text, headers */
+  --charcoal-warm: #4A4844;  /* secondary text, strong UI */
+
+  /* ---------- 10% — pure black ---------- */
+  --black:         #0A0A09;  /* CTAs, critical text, logo */
+
+  /* ---------- <5% — accents, used sparingly ---------- */
+  /* Single accent family: terracotta in three tones. */
+  --accent-terracotta-deep:  #8A3E2A;  /* deepest — emphasis */
+  --accent-terracotta:       #B4553A;  /* core */
+  --accent-terracotta-light: #D48668;  /* softest — surfaces, tints */
+
+  /* Backwards-compat aliases kept to avoid breaking existing usages. */
+  --accent-blue:  var(--accent-terracotta-deep);
+  --accent-green: var(--accent-terracotta-light);
+
+  /* ---------- Semantic foreground ---------- */
+  --fg-1: var(--black);         /* highest emphasis */
+  --fg-2: var(--charcoal);      /* default body text */
+  --fg-3: var(--charcoal-warm); /* secondary */
+  --fg-4: var(--gray-400);      /* captions, meta */
+  --fg-inverse: var(--bg-base); /* on dark */
+
+  /* ---------- Semantic background ---------- */
+  --surface-1: var(--bg-base);
+  --surface-2: var(--bg-raised);
+  --surface-3: var(--gray-100);
+  --surface-dark: var(--charcoal);
+  --surface-black: var(--black);
+
+  /* ---------- Borders / dividers ---------- */
+  --divider: rgba(10, 10, 9, 0.10);   /* 1px @ 10% opacity — never heavier */
+  --divider-strong: rgba(10, 10, 9, 0.18);
+  --border-subtle: rgba(10, 10, 9, 0.06);
+
+  /* ---------- Transparency panels (layered depth) ---------- */
+  --panel-60: rgba(250, 249, 245, 0.60);
+  --panel-70: rgba(250, 249, 245, 0.70);
+  --panel-85: rgba(250, 249, 245, 0.85);
+  --panel-dark-60: rgba(58, 58, 56, 0.60);
+  --panel-dark-85: rgba(58, 58, 56, 0.85);
+
+  /* ---------- Soft layered shadows (no hard edges) ---------- */
+  --shadow-xs: 0 1px 2px rgba(10, 10, 9, 0.04);
+  --shadow-sm: 0 2px 6px rgba(10, 10, 9, 0.05), 0 1px 2px rgba(10, 10, 9, 0.04);
+  --shadow-md: 0 6px 18px rgba(10, 10, 9, 0.06), 0 2px 6px rgba(10, 10, 9, 0.04);
+  --shadow-lg: 0 14px 40px rgba(10, 10, 9, 0.08), 0 4px 12px rgba(10, 10, 9, 0.05);
+  --shadow-inner: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+
+  /* ---------- Radii — softer than tech, tighter than consumer ---------- */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-pill: 999px; /* functional only */
+
+  /* ---------- Spacing — generous. 1.5× comfortable, +20%. ---------- */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+  --space-10: 128px;
+
+  /* ---------- Motion ---------- */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);  /* confident stop */
+  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 150ms;
+  --dur-base: 220ms;
+  --dur-slow: 300ms;
+
+  /* ---------- Type families ---------- */
+  --font-display: 'IBM Plex Serif', 'IBM Plex Sans Thai Looped', 'Times New Roman', serif;
+  --font-body:    'Inter', 'IBM Plex Sans Thai Looped', -apple-system, system-ui, sans-serif;
+  --font-thai:    'IBM Plex Sans Thai Looped', 'IBM Plex Sans Thai', sans-serif;
+  --font-mono:    'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* ---------- Type scale — one display per screen max ---------- */
+  --fs-display:   72px;
+  --fs-h1:        48px;
+  --fs-h2:        32px;
+  --fs-h3:        22px;
+  --fs-body:      16px;   /* primary */
+  --fs-body-sm:   14px;   /* secondary */
+  --fs-caption:   12px;   /* caption */
+
+  /* ---------- Line heights — airy ---------- */
+  --lh-display: 1.08;
+  --lh-heading: 1.22;
+  --lh-body:    1.55;
+  --lh-tight:   1.3;
+
+  /* ---------- Tracking ---------- */
+  --track-display: -0.02em;
+  --track-body:    0;
+  --track-caps:    0.08em;
+
+  /* ---------- Weights ---------- */
+  --w-regular: 400;
+  --w-medium:  500;
+  --w-semi:    600;
+  --w-bold:    700;
+}
+
+/* =============================================================
+   Semantic base styles — element defaults for prose contexts.
+   Apply to pages that opt in via class or <body>.
+   ============================================================= */
+
+.oa-prose,
+.oa-root {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--fg-2);
+  background: var(--bg-base);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.oa-display {
+  font-family: var(--font-display);
+  font-weight: var(--w-regular);
+  font-size: var(--fs-display);
+  line-height: var(--lh-display);
+  letter-spacing: var(--track-display);
+  color: var(--fg-1);
+  text-wrap: balance;
+}
+
+.oa-h1 {
+  font-family: var(--font-display);
+  font-weight: var(--w-regular);
+  font-size: var(--fs-h1);
+  line-height: var(--lh-heading);
+  letter-spacing: -0.015em;
+  color: var(--fg-1);
+  text-wrap: balance;
+}
+
+.oa-h2 {
+  font-family: var(--font-body);
+  font-weight: var(--w-medium);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-heading);
+  letter-spacing: -0.01em;
+  color: var(--fg-1);
+}
+
+.oa-h3 {
+  font-family: var(--font-body);
+  font-weight: var(--w-medium);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-tight);
+  color: var(--fg-2);
+}
+
+.oa-body  { font-size: var(--fs-body);    line-height: var(--lh-body); color: var(--fg-2); }
+.oa-body-sm { font-size: var(--fs-body-sm); line-height: var(--lh-body); color: var(--fg-3); }
+.oa-caption {
+  font-size: var(--fs-caption);
+  line-height: 1.4;
+  color: var(--fg-4);
+  letter-spacing: 0.02em;
+}
+.oa-eyebrow {
+  font-size: 11px;
+  font-weight: var(--w-medium);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--fg-4);
+}
+
+.oa-num, .oa-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+  letter-spacing: -0.01em;
+}
+
+/* Thai-first utility — use when a block is primarily Thai. */
+.oa-thai {
+  font-family: var(--font-thai);
+  line-height: 1.7; /* Thai needs more leading than Latin */
+}
+
+/* =============================================================
+   Component primitives used across kits.
+   Keep cosmetic only — real components live in ui_kits/.
+   ============================================================= */
+
+.oa-divider {
+  height: 1px;
+  background: var(--divider);
+  border: 0;
+  margin: var(--space-5) 0;
+}
+
+.oa-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-body);
+  font-size: var(--fs-body-sm);
+  font-weight: var(--w-medium);
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: opacity var(--dur-base) var(--ease-out),
+              background var(--dur-base) var(--ease-out);
+}
+.oa-btn--primary {
+  background: var(--black);
+  color: var(--fg-inverse);
+}
+.oa-btn--primary:hover { opacity: 0.88; }
+
+.oa-btn--ghost {
+  background: transparent;
+  color: var(--fg-1);
+  border-color: var(--divider);
+}
+.oa-btn--ghost:hover { background: var(--gray-100); }
+
+.oa-btn--text {
+  background: transparent;
+  color: var(--fg-1);
+  padding: 6px 0;
+  border-radius: 0;
+}
+.oa-btn--text::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.3;
+  margin-top: 2px;
+  transition: opacity var(--dur-base) var(--ease-out);
+}
+.oa-btn--text:hover::after { opacity: 0.8; }
+
+.oa-card {
+  background: var(--panel-85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-5);
+}
+
+.oa-input {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  padding: 10px 12px;
+  background: var(--bg-base);
+  border: 1px solid var(--divider);
+  border-radius: var(--radius-sm);
+  color: var(--fg-1);
+  transition: border-color var(--dur-base) var(--ease-out);
+}
+.oa-input:focus {
+  outline: none;
+  border-color: var(--charcoal);
+}
+
+/* Editorial asymmetric grid helpers */
+.oa-grid-editorial {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-5);
+}

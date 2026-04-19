@@ -1,0 +1,26 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Iconography</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:var(--bg-base);padding:22px 24px;font-family:var(--font-body);color:var(--fg-2)}
+  .eb{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-4);margin-bottom:14px}
+  .row{display:grid;grid-template-columns:repeat(8,1fr);gap:12px}
+  .cell{display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--fg-2)}
+  .cell svg{width:24px;height:24px;stroke:currentColor;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .lbl{font-size:10px;color:var(--fg-4);letter-spacing:.02em}
+  .note{font-size:11px;color:var(--fg-4);margin-top:14px;font-family:'IBM Plex Serif',serif;font-style:italic}
+</style></head>
+<body>
+  <div class="eb">Iconography · Lucide · 1.5 px · outline · currentColor</div>
+  <div class="row">
+    <div class="cell"><svg viewBox="0 0 24 24"><path d="M3 12 L11 4 L21 4 L21 14 L13 22 Z"/><circle cx="15" cy="9" r="1.5"/></svg><div class="lbl">tag</div></div>
+    <div class="cell"><svg viewBox="0 0 24 24"><path d="M3 7 L3 17 M7 3 L7 21 M11 5 L21 5 L21 19 L11 19"/></svg><div class="lbl">sidebar</div></div>
+    <div class="cell"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7 V12 L15 14"/></svg><div class="lbl">clock</div></div>
+    <div class="cell"><svg viewBox="0 0 24 24"><path d="M4 6 H20 M4 12 H20 M4 18 H14"/></svg><div class="lbl">list</div></div>
+    <div class="cell"><svg viewBox="0 0 24 24"><path d="M12 4 V20 M4 12 H20"/></svg><div class="lbl">plus</div></div>
+    <div class="cell"><svg viewBox="0 0 24 24"><path d="M5 12 H19 M13 6 L19 12 L13 18"/></svg><div class="lbl">arrow</div></div>
+    <div class="cell"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21 L16 16"/></svg><div class="lbl">search</div></div>
+    <div class="cell"><svg viewBox="0 0 24 24"><path d="M4 7 L12 13 L20 7 M4 7 V17 H20 V7"/></svg><div class="lbl">mail</div></div>
+  </div>
+  <div class="note">No emoji. No filled icons. Unicode (↗ · →) acceptable inline with text.</div>
+</body></html>

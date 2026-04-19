@@ -1,0 +1,27 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Inputs</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:var(--bg-base);padding:22px 24px;font-family:var(--font-body);color:var(--fg-2)}
+  .eb{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-4);margin-bottom:14px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  label{display:block;font-size:11px;color:var(--fg-4);margin-bottom:6px;letter-spacing:.02em}
+  .oa-input{width:100%;box-sizing:border-box}
+  .focus{border-color:var(--charcoal)!important;box-shadow:0 0 0 3px rgba(58,58,56,.08)}
+  .help{font-size:11px;color:var(--fg-4);margin-top:6px}
+</style></head>
+<body>
+  <div class="eb">Form inputs</div>
+  <div class="grid">
+    <div>
+      <label>Shop name · ชื่อร้าน</label>
+      <input class="oa-input" value="Maison Siam"/>
+      <div class="help">Shown to customers on invoices.</div>
+    </div>
+    <div>
+      <label>API key</label>
+      <input class="oa-input focus" value="oa_live_••••••"/>
+      <div class="help" style="color:var(--charcoal)">Focused · 1px charcoal, no color flash</div>
+    </div>
+  </div>
+</body></html>

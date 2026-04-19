@@ -1,0 +1,28 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Motion</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:var(--bg-base);padding:22px 24px;font-family:var(--font-body);color:var(--fg-2)}
+  .eb{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-4);margin-bottom:14px}
+  .track{position:relative;height:44px;background:#EAEAE6;border-radius:4px;overflow:hidden;margin-bottom:14px}
+  .dot{position:absolute;top:50%;left:10px;width:20px;height:20px;transform:translateY(-50%);background:var(--charcoal);border-radius:4px;animation:slide 2.2s cubic-bezier(.22,.61,.36,1) infinite}
+  @keyframes slide{
+    0%{left:10px}
+    45%{left:calc(100% - 30px)}
+    55%{left:calc(100% - 30px)}
+    100%{left:10px}
+  }
+  .meta{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--fg-3)}
+  .meta div span{display:block;color:var(--fg-4);font-size:10px;margin-bottom:4px;letter-spacing:.02em}
+  .note{font-size:11px;color:var(--fg-4);margin-top:10px;font-family:'IBM Plex Serif',serif;font-style:italic}
+</style></head>
+<body>
+  <div class="eb">Motion · 200–300ms ease-out · confident stop</div>
+  <div class="track"><div class="dot"></div></div>
+  <div class="meta">
+    <div><span>duration</span>220 ms</div>
+    <div><span>easing</span>cubic-bezier(.22,.61,.36,1)</div>
+    <div><span>transition</span>cross-fade preferred</div>
+  </div>
+  <div class="note">No bounces. No elastic. No spring overshoot.</div>
+</body></html>

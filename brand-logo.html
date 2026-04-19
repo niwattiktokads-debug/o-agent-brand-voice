@@ -1,0 +1,38 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Logo</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:var(--bg-base);padding:18px 24px;font-family:var(--font-body);color:var(--fg-2)}
+  .eb{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-4);margin-bottom:14px}
+  .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;align-items:stretch}
+  .tile{padding:18px;border-radius:6px;display:flex;align-items:center;justify-content:center;min-height:110px}
+  .light{background:#FAF9F5;border:1px solid rgba(10,10,9,.06)}
+  .gray{background:#EAEAE6}
+  .dark{background:#0A0A09}
+  .light img, .gray img{color:#0A0A09}
+  .dark img{filter:invert(1)}
+  img.mark{height:64px;width:auto}
+  img.word{height:48px;width:auto}
+  .lbl{font-size:10px;color:var(--fg-4);margin-top:8px;text-align:center;letter-spacing:.02em;font-family:'IBM Plex Mono',monospace}
+</style></head>
+<body>
+  <div class="eb">Logo · mark &amp; wordmark</div>
+  <div class="grid">
+    <div>
+      <div class="tile light"><img class="mark" src="../assets/logo-mark.svg" alt="mark"/></div>
+      <div class="lbl">on bg-base</div>
+    </div>
+    <div>
+      <div class="tile gray"><img class="mark" src="../assets/logo-mark.svg" alt="mark"/></div>
+      <div class="lbl">on gray-100</div>
+    </div>
+    <div>
+      <div class="tile dark"><img class="mark" src="../assets/logo-mark.svg" alt="mark"/></div>
+      <div class="lbl">on black · inverted</div>
+    </div>
+  </div>
+  <div style="margin-top:14px">
+    <div class="tile light" style="justify-content:flex-start"><img class="word" src="../assets/logo-wordmark.svg" alt="wordmark"/></div>
+    <div class="lbl" style="text-align:left">wordmark lockup</div>
+  </div>
+</body></html>

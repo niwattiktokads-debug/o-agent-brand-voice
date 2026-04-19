@@ -1,85 +1,34 @@
-# O-Agent Brand Voice
+# O-Agent Operator Console
 
-Brand voice and design system for **O-Agent Co., Ltd.** — a Thai technology and marketing company building AI-powered automation, performance marketing, and in-house design systems for e-commerce operators.
+High-fidelity recreation of the internal AI agent console O-Agent operators use to run TikTok Shop / Shopee / TikTok Ads / FlowAccount workflows for Thai SME clients.
 
----
+## Screens included
 
-## About
-
-O-Agent delivers:
-
-- Brand identity and visual systems — logo, color, typography, motion
-- Bilingual (Thai / English) UI systems with custom-drawn typefaces
-- Editorial visual design for marketing, landing pages, and creative assets
-- Operator-facing product interfaces — dashboards, AI agent consoles, internal tooling for TikTok Shop, Shopee, TikTok Ads, and FlowAccount workflows
-- Creative direction for ad creatives, thumbnails, and livestream overlays
-
-Our design language bridges editorial minimalism (Anthropic Claude Labs aesthetic) with the visual density Thai e-commerce operators need — clean, confident, bilingual-first, and built for speed.
-
-## Design Philosophy
-
-- Editorial, not decorative — every element earns its place.
-- Warm minimalism inspired by Anthropic Claude Labs.
-- Thai-first bilingual hierarchy — Thai typography is a primary citizen, not retrofitted.
-- Confidence through restraint — trust whitespace, trust silence.
-- Transparency and layering as a core expressive device.
-
-## Color System (70 / 20 / 10)
-
-| Weight | Role | Palette |
-|--------|------|---------|
-| 70% | Primary surfaces, backgrounds | `#EAEAE6` / `#D4D2CA` / `#B8B6AE` |
-| 20% | Text, headers, strong UI | `#3A3A38` / `#4A4844` |
-| 10% | Highest emphasis only | `#0A0A09` |
-
-Accents used sparingly (under 5% combined): warm terracotta, muted blue, forest green.
-Never use pure white background — always warm off-white `#FAF9F5`.
-
-## Typography
-
-Custom bilingual typeface in development — Thai and Latin drawn from the same design pen, shared x-height, shared rhythm.
-
-- **Display** — editorial serif. Thai: loop-style elegant. Latin: Didone-adjacent.
-- **Body** — humanist sans. Thai: modern loopless. Latin: geometric humanist.
-- **Numerals** — tabular, monospaced, slightly condensed.
-- **Fallback (dev only)** — IBM Plex Sans Thai (Looped + Loopless) paired with Inter and Söhne.
-
-## Visual Language
-
-- Multi-layer transparency — panels stacked at 60 to 85 percent opacity for depth.
-- Soft layered shadows instead of hard borders.
-- Generous whitespace — 1.5x comfortable, then plus 20 percent.
-- Asymmetric editorial grids.
-- Low-saturation, cinematic imagery. No stock photography. No gradients.
+1. **Dashboard** — a client's live metrics overview with multi-platform KPI cards, running workflows, and the agent's recent decisions log.
+2. **Agent conversation** — chat surface where the operator instructs the agent in Thai/English code-switched prose; the agent asks for confirmation before writing to marketplace APIs.
+3. **Campaign list** — a spreadsheet-dense view of active TikTok Ads campaigns with inline pause / adjust controls.
+4. **Settings** — workspace + integrations screen.
 
 ## Components
 
-- Rounded corners 4 to 8px — softer than tech, tighter than consumer.
-- Dividers: 1px at 10 percent opacity.
-- Buttons: minimal, text-forward, no gradients.
-- Cards: subtle layered transparency, no heavy shadows.
-- Icons: thin stroke 1.5px, rounded joins, monochromatic.
+Factored JSX components live at the top level of this folder:
 
-## Motion
+- `Sidebar.jsx` — fixed nav, includes the O-Agent mark, workspace switcher, and navigation.
+- `TopBar.jsx` — breadcrumb + workspace meta + search.
+- `KpiCard.jsx` — tabular-numerals metric card with delta.
+- `WorkflowRow.jsx` — running-workflow row with status dot + last action.
+- `AgentMessage.jsx` — chat bubbles (operator / agent), including the agent's structured "tool call" blocks.
+- `CampaignTable.jsx` — dense list with status, platform badge, ROAS, spend, action.
+- `Button.jsx`, `Input.jsx`, `Tag.jsx` — primitives.
 
-- 200 to 300ms ease-out for micro-interactions.
-- No bounces. Confident stops.
-- Cross-fades preferred over slides.
-- Hover: opacity shift only, never color flash.
+## Interactions
 
-## Brand Voice
+The `index.html` wires up:
+- A tab switcher between Dashboard / Agent / Campaigns / Settings (cross-fade, ~220ms).
+- The Agent screen lets the operator type a prompt and receive a scripted response.
+- Campaigns table lets you toggle pause/live on any row.
 
-- Professional, decisive, direct. Business-owner perspective.
-- Outcome-focused — lead with what changes for the reader.
-- Thai and English code-switching is natural, not avoided.
-- Short sentences. No marketing fluff. No emoji. No exclamation marks.
+## Caveats
 
-## Do and Don't
-
-**Do**: editorial whitespace, layered transparency, confident silence, Thai and Latin as equals.
-
-**Don't**: gradient backgrounds, decorative illustrations, playful icons, stock photography, excessive accent color, pure white surfaces, bouncy animations.
-
----
-
-© 2026 O-Agent Co., Ltd.
+- Built from the brand brief's description of the tool, not an existing codebase. Treat as a visual anchor. The flows are mocked, not wired to marketplace APIs.
+- Lucide icons inlined as SVG to avoid a runtime dependency.

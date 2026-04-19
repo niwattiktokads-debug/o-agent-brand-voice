@@ -1,0 +1,26 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>70/20/10 ratio</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:var(--bg-base);font-family:var(--font-body);color:var(--fg-2)}
+  .wrap{padding:20px 24px}
+  .tag{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-4);margin-bottom:10px}
+  .bar{height:56px;border-radius:var(--radius-sm);overflow:hidden;display:flex;box-shadow:var(--shadow-xs)}
+  .seg{display:flex;align-items:flex-end;padding:6px 10px;font-family:var(--font-mono);font-size:10px;letter-spacing:.02em}
+  .s70{background:#EAEAE6;width:70%;color:#3A3A38}
+  .s20{background:#3A3A38;width:20%;color:#FAF9F5}
+  .s10{background:#0A0A09;width:10%;color:#FAF9F5}
+  .label{display:grid;grid-template-columns:70fr 20fr 10fr;font-size:11px;color:var(--fg-3);margin-top:8px;gap:0}
+  .label div{padding:0 4px}
+</style></head>
+<body>
+  <div class="wrap">
+    <div class="tag">Strict usage ratio</div>
+    <div class="bar">
+      <div class="seg s70">70%</div>
+      <div class="seg s20">20%</div>
+      <div class="seg s10">10%</div>
+    </div>
+    <div class="label"><div>surfaces &amp; neutrals</div><div>charcoal</div><div>black</div></div>
+  </div>
+</body></html>

@@ -1,0 +1,20 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Transparency layers</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:var(--bg-base);padding:22px 24px;font-family:var(--font-body);color:var(--fg-2)}
+  .eb{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-4);margin-bottom:14px}
+  .stage{position:relative;height:200px;border-radius:6px;overflow:hidden;background:linear-gradient(135deg,#D4D2CA 0%,#B8B6AE 60%,#8A8880 100%)}
+  .panel{position:absolute;border-radius:6px;padding:10px 14px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.02em;color:var(--fg-1);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 2px 6px rgba(10,10,9,.06)}
+  .p60{background:rgba(250,249,245,.60);top:22px;left:24px;width:220px;height:120px}
+  .p70{background:rgba(250,249,245,.70);top:60px;left:190px;width:220px;height:120px}
+  .p85{background:rgba(250,249,245,.85);top:30px;left:380px;width:220px;height:100px}
+</style></head>
+<body>
+  <div class="eb">Transparency · panels at 60 / 70 / 85 %</div>
+  <div class="stage">
+    <div class="panel p60">panel-60 · depth</div>
+    <div class="panel p70">panel-70 · mid</div>
+    <div class="panel p85">panel-85 · foreground</div>
+  </div>
+</body></html>

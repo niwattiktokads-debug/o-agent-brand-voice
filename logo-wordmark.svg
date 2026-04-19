@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" fill="none">
+  <g transform="translate(10,10)">
+    <circle cx="50" cy="50" r="42" stroke="currentColor" stroke-width="8" fill="none"></circle>
+    <path d="M50 22 L68 56 L32 56 Z" stroke="currentColor" stroke-width="6" stroke-linejoin="round" fill="none"></path>
+    <path d="M44 51 L56 51" stroke="currentColor" stroke-width="5" stroke-linecap="round"></path>
+    <path d="M32 56 L32 84" stroke="currentColor" stroke-width="6" stroke-linecap="round"></path>
+    <path d="M50 56 L50 84" stroke="currentColor" stroke-width="6" stroke-linecap="round"></path>
+    <path d="M68 56 L68 84" stroke="currentColor" stroke-width="6" stroke-linecap="round"></path>
+    <path d="M32 62 L68 62" stroke="currentColor" stroke-width="3"></path>
+  </g>
+  <text x="120" y="75" font-family="&#39;IBM Plex Serif&#39;, Georgia, serif" font-size="56" font-weight="400" fill="currentColor" letter-spacing="-1.5">O-Agent</text>
+</svg>

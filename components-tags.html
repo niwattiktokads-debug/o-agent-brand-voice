@@ -1,0 +1,26 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Tags &amp; dividers</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:var(--bg-base);padding:22px 24px;font-family:var(--font-body);color:var(--fg-2)}
+  .eb{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-4);margin-bottom:14px}
+  .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:18px}
+  .tag{font-size:11px;letter-spacing:.02em;padding:3px 10px;border-radius:999px;border:1px solid rgba(10,10,9,.1);color:var(--fg-2);background:transparent}
+  .tag.dot::before{content:"";display:inline-block;width:6px;height:6px;border-radius:999px;margin-right:6px;vertical-align:middle;background:var(--accent-green)}
+  .tag.dot.warn::before{background:var(--accent-terracotta)}
+  .tag.solid{background:var(--charcoal);color:var(--fg-inverse);border-color:transparent}
+  hr{border:0;border-top:1px solid rgba(10,10,9,.1);margin:0}
+  .div-lbl{font-size:11px;color:var(--fg-4);margin:6px 0}
+</style></head>
+<body>
+  <div class="eb">Tags · pill only when functional</div>
+  <div class="row">
+    <span class="tag dot">Live</span>
+    <span class="tag dot warn">Paused</span>
+    <span class="tag">Draft</span>
+    <span class="tag solid">Primary</span>
+  </div>
+  <div class="eb">Divider · 1px @ 10% opacity, never heavier</div>
+  <div class="div-lbl">—</div>
+  <hr/>
+</body></html>
