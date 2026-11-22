@@ -32,3 +32,11 @@ The `index.html` wires up:
 
 - Built from the brand brief's description of the tool, not an existing codebase. Treat as a visual anchor. The flows are mocked, not wired to marketplace APIs.
 - Lucide icons inlined as SVG to avoid a runtime dependency.
+
+## Shared O-Agent Design references
+
+- [Brand guide](brand-guide.md): existing visual and voice rules.
+- [Sankey standard](sankey.md): quantity-flow, brand mapping, data validation and accessible interaction.
+- [Skill entrypoint](SKILL.md) and [tokens](colors_and_type.css).
+
+Mac and Cloud should read this set at the same Git commit. Publishing references does not install skills, refresh consuming projects or deploy Console. Preserve existing cloud work and inspect its brand sync/check commands before refreshing snapshots.
