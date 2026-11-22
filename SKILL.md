@@ -4,7 +4,7 @@ description: Use this skill to generate well-branded interfaces and assets for O
 user-invocable: true
 ---
 
-Read the `README.md` file within this skill, and explore the other available files — `colors_and_type.css` holds the tokens, `assets/` holds logos and marks, `ui_kits/` holds high-fidelity recreations of the operator console.
+Read `README.md` and `brand-guide.md`. `colors_and_type.css` holds the tokens. In this repository, logos, HTML references and the operator-console JSX examples are at the repository root. For Sankey and quantity-flow dashboards, also read `sankey.md`. Read all references at the same Git revision; no local Mac path is required.
 
 If creating visual artifacts (slides, mocks, throwaway prototypes, etc), copy assets out and create static HTML files for the user to view. If working on production code, you can copy assets and read the rules here to become an expert in designing with this brand.
 
